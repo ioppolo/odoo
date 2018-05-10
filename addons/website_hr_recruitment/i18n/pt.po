@@ -2,12 +2,16 @@
 # This file contains the translation of the following modules:
 # * website_hr_recruitment
 # 
+# Translators:
+# Manuela Silva <manuela.silva@sky.com>, 2018
+# Nuno Silva <nuno.silva@arxi.pt>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-20 09:54+0000\n"
 "PO-Revision-Date: 2017-09-20 09:54+0000\n"
+"Last-Translator: Nuno Silva <nuno.silva@arxi.pt>, 2018\n"
 "Language-Team: Portuguese (https://www.transifex.com/odoo/teams/41243/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -126,7 +130,7 @@ msgstr ""
 #. module: website_hr_recruitment
 #: model:ir.ui.view,arch_db:website_hr_recruitment.job_countries
 msgid "All Countries"
-msgstr ""
+msgstr "Todos os Países"
 
 #. module: website_hr_recruitment
 #: model:ir.ui.view,arch_db:website_hr_recruitment.job_departments
@@ -161,7 +165,7 @@ msgstr ""
 #. module: website_hr_recruitment
 #: model:ir.ui.view,arch_db:website_hr_recruitment.default_website_description
 msgid "Benefits"
-msgstr ""
+msgstr "Benefícios"
 
 #. module: website_hr_recruitment
 #: model:ir.ui.view,arch_db:website_hr_recruitment.default_website_description
@@ -173,7 +177,7 @@ msgstr ""
 #. module: website_hr_recruitment
 #: model:ir.ui.view,arch_db:website_hr_recruitment.default_website_description
 msgid "Company Growth:"
-msgstr ""
+msgstr "Crescimento da empresa:"
 
 #. module: website_hr_recruitment
 #: model:ir.ui.view,arch_db:website_hr_recruitment.default_website_description
@@ -185,12 +189,12 @@ msgstr ""
 #: model:ir.ui.view,arch_db:website_hr_recruitment.thankyou_page_ir_ui_view
 #: model:website.page,arch_db:website_hr_recruitment.thankyou_page
 msgid "Congratulations!"
-msgstr ""
+msgstr "Parabéns!"
 
 #. module: website_hr_recruitment
 #: model:ir.ui.view,arch_db:website_hr_recruitment.index
 msgid "Contact us"
-msgstr ""
+msgstr "Contactar-nos"
 
 #. module: website_hr_recruitment
 #: model:ir.ui.view,arch_db:website_hr_recruitment.thankyou
@@ -319,7 +323,7 @@ msgstr ""
 #. module: website_hr_recruitment
 #: model:ir.ui.view,arch_db:website_hr_recruitment.content_new_job_offer
 msgid "New Job Offer"
-msgstr ""
+msgstr "Novo Oferta de Trabalho"
 
 #. module: website_hr_recruitment
 #: model:ir.ui.view,arch_db:website_hr_recruitment.default_website_description
@@ -396,7 +400,7 @@ msgstr ""
 #. module: website_hr_recruitment
 #: model:ir.ui.view,arch_db:website_hr_recruitment.default_website_description
 msgid "Sales Cycle:"
-msgstr ""
+msgstr "Ciclo de vendas:"
 
 #. module: website_hr_recruitment
 #: model:ir.ui.view,arch_db:website_hr_recruitment.default_website_description
@@ -528,7 +532,7 @@ msgstr ""
 #. module: website_hr_recruitment
 #: model:ir.ui.view,arch_db:website_hr_recruitment.index
 msgid "for job opportunities."
-msgstr ""
+msgstr "para oportunidades de trabalho."
 
 #. module: website_hr_recruitment
 #: model:ir.ui.view,arch_db:website_hr_recruitment.index

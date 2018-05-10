@@ -658,6 +658,11 @@ class Page(models.Model):
         item = self.search_read(domain, fields=['id', 'name', 'url', 'website_published', 'website_indexed', 'date_publish', 'menu_ids', 'is_homepage'], limit=1)
         return item
 
+    @api.multi
+    def get_view_identifier(self):
+        """ Get identifier of this page view that may be used to render it """
+        return self.view_id.id
+
     @api.model
     def save_page_info(self, website_id, data):
         website = self.env['website'].browse(website_id)
@@ -880,9 +885,10 @@ class Menu(models.Model):
         for menu in data['data']:
             menu_id = self.browse(menu['id'])
             # if the url match a website.page, set the m2o relation
-            page = self.env['website.page'].search([('url', '=', menu['url'])], limit=1)
+            page = self.env['website.page'].search(['|', ('url', '=', menu['url']), ('url', '=', '/' + menu['url'])], limit=1)
             if page:
                 menu['page_id'] = page.id
+                menu['url'] = page.url
             elif menu_id.page_id:
                 menu_id.page_id.write({'url': menu['url']})
             menu_id.write(menu)

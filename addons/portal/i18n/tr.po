@@ -58,7 +58,7 @@ msgstr ""
 #. module: portal
 #: model:ir.ui.view,arch_db:portal.portal_show_sign_in
 msgid "<b>Sign in</b>"
-msgstr "<b>Portal</b>"
+msgstr "<b>Giriş</b>"
 
 #. module: portal
 #: model:ir.ui.view,arch_db:portal.portal_searchbar
@@ -635,7 +635,7 @@ msgstr "oturum açıldı"
 #. module: portal
 #: model:ir.model,name:portal.model_portal_mixin
 msgid "portal.mixin"
-msgstr ""
+msgstr "portal.mixin"
 
 #. module: portal
 #: model:ir.ui.view,arch_db:portal.portal_my_details

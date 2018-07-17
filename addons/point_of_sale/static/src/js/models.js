@@ -245,6 +245,8 @@ exports.PosModel = Backbone.Model.extend({
 
             self.db.set_uuid(self.config.uuid);
             self.set_cashier(self.get_cashier());
+            // We need to do it here, since only then the local storage has the correct uuid
+            self.db.save('pos_session_id', self.pos_session.id);
 
             var orders = self.db.get_orders();
             for (var i = 0; i < orders.length; i++) {
@@ -259,6 +261,7 @@ exports.PosModel = Backbone.Model.extend({
             // we attribute a role to the user, 'cashier' or 'manager', depending
             // on the group the user belongs.
             var pos_users = [];
+            var current_cashier = self.get_cashier();
             for (var i = 0; i < users.length; i++) {
                 var user = users[i];
                 for (var j = 0; j < user.groups_id.length; j++) {
@@ -276,6 +279,8 @@ exports.PosModel = Backbone.Model.extend({
                 // replace the current user with its updated version
                 if (user.id === self.user.id) {
                     self.user = user;
+                }
+                if (user.id === current_cashier.id) {
                     self.set_cashier(user);
                 }
             }
@@ -624,12 +629,16 @@ exports.PosModel = Backbone.Model.extend({
 
     // returns the user who is currently the cashier for this point of sale
     get_cashier: function(){
+        // reset the cashier to the current user if session is new
+        if (this.db.load('pos_session_id') !== this.pos_session.id) {
+            this.set_cashier(this.user);
+        }
         return this.db.get_cashier() || this.get('cashier') || this.user;
     },
     // changes the current cashier
     set_cashier: function(user){
         this.set('cashier', user);
-        this.db.set_cashier(this.cashier);
+        this.db.set_cashier(this.get('cashier'));
     },
     //creates a new empty order and sets it as the current order
     add_new_order: function(){
@@ -1402,6 +1411,7 @@ exports.Orderline = Backbone.Model.extend({
             this.set_unit_price(this.product.get_price(this.order.pricelist, this.get_quantity()));
             this.order.fix_tax_included_price(this);
         }
+        this.trigger('change', this);
     },
     // return the quantity of product
     get_quantity: function(){
@@ -2120,7 +2130,7 @@ exports.Order = Backbone.Model.extend({
                 company_registry: company.company_registry,
                 contact_address: company.partner_id[1],
                 vat: company.vat,
-                vat_label: company.country.vat_label,
+                vat_label: company.country && company.country.vat_label || '',
                 name: company.name,
                 phone: company.phone,
                 logo:  this.pos.company_logo_base64,

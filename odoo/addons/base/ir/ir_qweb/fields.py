@@ -391,9 +391,9 @@ class DurationConverter(models.AbstractModel):
     @api.model
     def value_to_html(self, value, options):
         units = dict(TIMEDELTA_UNITS)
-
-        if value < 0:
-            raise ValueError(_("Durations can't be negative"))
+        #I&A 29AUG18 - Hide this error 
+        #if value < 0:
+        #    raise ValueError(_("Durations can't be negative"))
 
         if not options or options.get('unit') not in units:
             raise ValueError(_("A unit must be provided to duration widgets"))

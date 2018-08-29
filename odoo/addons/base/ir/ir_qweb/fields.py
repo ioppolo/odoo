@@ -391,10 +391,17 @@ class DurationConverter(models.AbstractModel):
     @api.model
     def value_to_html(self, value, options):
         units = dict(TIMEDELTA_UNITS)
-         
-        if value < 0:
-            raise ValueError(_("Durations can't be negative"))
+        
+        #I&A 29AUG18
+        #if value < 0:
+        #    raise ValueError(_("Durations can't be negative"))
 
+        #I&A 29AUG18
+        min = False
+        if value < 0 :
+            min = True
+            value = abs(value)
+            
         if not options or options.get('unit') not in units:
             raise ValueError(_("A unit must be provided to duration widgets"))
 
@@ -416,7 +423,14 @@ class DurationConverter(models.AbstractModel):
                 v*secs_per_unit, threshold=1, locale=locale)
             if section:
                 sections.append(section)
-        return u' '.join(sections)
+        #I&A 29AUG18
+        #return u' '.join(sections)
+        if min == False:
+            return u' '.join(sections)
+        else:
+            sections = ['-'] + sections
+            #sections.append('-')
+            return u' '.join(sections)
 
 
 class RelativeDatetimeConverter(models.AbstractModel):

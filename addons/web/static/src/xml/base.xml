@@ -1544,10 +1544,15 @@
 
 <t t-name="UserMenu.Actions">
     <a role="menuitem" href="#" data-menu="documentation" class="dropdown-item">Documentation</a>
+    <!-- I&A Remove Support menu
     <a role="menuitem" href="#" data-menu="support" class="dropdown-item">Support</a>
+    -->
     <div role="separator" class="dropdown-divider"/>
     <a role="menuitem" href="#" data-menu="settings" class="dropdown-item">Preferences</a>
+    <!-- I&A Remove my odoo account menu
     <a role="menuitem" href="#" data-menu="account" class="dropdown-item">My Odoo.com account</a>
+     --> 
+
     <a role="menuitem" href="#" data-menu="logout" class="dropdown-item">Log out</a>
 </t>
 

@@ -258,7 +258,7 @@ msgstr "移除Email"
 msgid ""
 "Send your documents in your partner's language or set up a language for your"
 " users"
-msgstr "为您的用户设置一种语言或给您的合作伙伴发送文档设置一种语言"
+msgstr "以您的合作伙伴的语言发送您的文档或为您的用户设置一种语言。"
 
 #. module: web_settings_dashboard
 #. openerp-web

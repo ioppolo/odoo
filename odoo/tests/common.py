@@ -314,7 +314,7 @@ class BaseCase(TreeCase, MetaCase('DummyCase', (object,), {})):
                 field_type = record._fields[field_name].type
                 if field_type == 'monetary':
                     # Compare monetary field.
-                    currency_field_name = record._fields[field_name]._related_currency_field
+                    currency_field_name = record._fields[field_name].currency_field
                     record_currency = record[currency_field_name]
                     if record_currency.compare_amounts(candidate_value, record_value)\
                             if record_currency else candidate_value != record_value:
@@ -530,7 +530,8 @@ class ChromeBrowser():
             '--user-data-dir': self.user_data_dir,
             '--disable-translate': '',
             '--window-size': '1366x768',
-            '--remote-debugging-port': str(self.devtools_port)
+            '--remote-debugging-port': str(self.devtools_port),
+            '--no-sandbox': '',
         }
         cmd = [self.executable]
         cmd += ['%s=%s' % (k, v) if v else k for k, v in switches.items()]

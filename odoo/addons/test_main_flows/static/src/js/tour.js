@@ -542,16 +542,18 @@ tour.register('main_flow_tour', {
     trigger: ".o_menu_sections a[data-menu-xmlid='mrp.menu_mrp_manufacturing']",
     content: _t('Click on Operations menuitem'),
     position: 'bottom',
+    edition: 'enterprise',
 }, {
     trigger: ".o_menu_sections a[data-menu-xmlid='mrp.menu_mrp_production_action']",
     content: _t('Open manufacturing orders'),
     position: 'bottom',
+    edition: 'enterprise',
 }, {
     trigger: '.o_data_row:has(.o_data_cell:contains("the_flow.product")):first',
     content: _t('Select the generated manufacturing order'),
     position: 'bottom',
 }, {
-    trigger: ".o_statusbar_buttons > button:enabled:contains('Check availability')",
+    trigger: ".o_statusbar_buttons > button[name='action_assign']:enabled",
     content: _t("Check availability"),
     position: "bottom",
 }, {
@@ -671,7 +673,7 @@ tour.register('main_flow_tour', {
     position: 'bottom',
 }, {
     edition: "enterprise",
-    trigger: '.o_app[data-menu-xmlid="account.menu_finance"]',
+    trigger: '.o_app[data-menu-xmlid="account_accountant.menu_accounting"]',
     content: _t('Go to Accounting'),
     position: 'bottom',
 }, {
